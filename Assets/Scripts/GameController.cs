@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    //Declaração das matrizes que serão utilizadas
     public static int Turno;
     public static List<GameObject> HeroisP1 = new List<GameObject>();
     public static List<GameObject> HeroisP2 = new List<GameObject>();
@@ -17,11 +18,11 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        Turno = Random.Range(1, 3);
+        Turno = Random.Range(1, 3); //Gera jogador aleatório e chama função que exibe msg
         TextoTurno.enabled = false;
         StartCoroutine(MensagemTurno());
 
-        CasaOcupada = new bool[CriadorTabuleiro.ListaPosicoes.Count];
+        CasaOcupada = new bool[CriadorTabuleiro.ListaPosicoes.Count]; //Popula o vetor booleano com todas as casas desocupadas
         for (int x = 0; x < CasaOcupada.Length; x++)
         {
             CasaOcupada[x] = false;
@@ -56,7 +57,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void MoverPersonagens()
+    void MoverPersonagens() //Função que move os personagens dependendo do turno
     {
         if(Turno == 1)
         {

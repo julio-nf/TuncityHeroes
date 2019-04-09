@@ -6,9 +6,9 @@ using UnityEngine.Tilemaps;
 
 public class CriadorTabuleiro : MonoBehaviour
 {
-    public static List<Vector3> ListaPosicoes = new List<Vector3>();
+    public static List<Vector3> ListaPosicoes = new List<Vector3>(); //Lista de todas posições possiveis no tabuleiro
 
-    public int IndexPos(Vector3 pos)
+    public int IndexPos(Vector3 pos) //Função que gera o index na lista de uma posição especifica
     {
         for (int x = 0; x < ListaPosicoes.Count; x++)
         {
@@ -29,7 +29,7 @@ public class CriadorTabuleiro : MonoBehaviour
         {
             for (int y = 0; y < LimitesTabu.size.y; y++)
             {
-                ListaPosicoes.Add(new Vector3(x, y, 0));
+                ListaPosicoes.Add(new Vector3(x, y, 0)); //Populando a Lista com todas posições do tabuleiro
             }
         }
     }
