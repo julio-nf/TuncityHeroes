@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Loja
   - Inventario
-  - Tabuleiro
+  - Player1
+  - Player2
   layers:
   - Default
   - TransparentFX
@@ -43,6 +44,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Cenario
+    uniqueID: 1261663275
+    locked: 0
+  - name: CenarioCastelo
+    uniqueID: 2743184897
     locked: 0
   - name: "Campe\xF5es"
     uniqueID: 1261284507

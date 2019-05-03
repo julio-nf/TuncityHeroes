@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Arrastar : MonoBehaviour
 {
+    public GameObject gameManager;
     private Vector2 initialPosition;
     private Vector2 mousePosition;
     private Vector2 gridPosition;
     private float deltaX, deltaY;
     private GameObject Hero;
-
+    public Sprite[] spritesR;
 
     private void Start()
     {
@@ -32,30 +33,33 @@ public class Arrastar : MonoBehaviour
 
     private void OnMouseUp()
     {
-        float PosX = Mathf.RoundToInt(transform.position.x);
-        float PosY = Mathf.RoundToInt(transform.position.y);
-        if (GameController.Turno == 1)
-        {            
-            if (PosX >= 0 && PosX <= 1 && PosY >= 0 && PosY <= 8)
-            {
-                transform.position = new Vector2(PosX, PosY);
-                GameController.HeroisP1.Add(gameObject);
-            }
+        //GameManager GM = gameManager.GetComponent<GameManager>();
 
-            else
-            {
+        int PosX = Mathf.RoundToInt(transform.position.x);
+        int PosY = Mathf.RoundToInt(transform.position.y);
+        SpriteRenderer SR = gameObject.GetComponent<SpriteRenderer>();
+
+        if (GameManager.Turno == 1)
+        {            
+            if (PosX >= 0 && PosX <= 7 && PosY >= 0 && PosY <= 3) {
+                transform.position = new Vector2(PosX, PosY);
+                transform.tag = "Player1";
+                GameManager.CasaOcupada[PosX, PosY] = gameObject; 
+                SR.sprite = spritesR[1];
+            }
+            else {
                 transform.position = new Vector2(initialPosition.x, initialPosition.y);
             }
         }
         else
         {
-            if (PosX >= 6 && PosX <= 7 && PosY >= 0 && PosY <= 8)
-            {
+            if (PosX >= 0 && PosX <= 7 && PosY >= 4 && PosY <= 7) {
                 transform.position = new Vector2(PosX, PosY);
-                GameController.HeroisP2.Add(gameObject);
+                transform.tag = "Player2";
+                GameManager.CasaOcupada[PosX, PosY] = gameObject;
+                SR.sprite = spritesR[1];
             }
-            else
-            {
+            else {
                 transform.position = new Vector2(initialPosition.x, initialPosition.y);
             }
         }
