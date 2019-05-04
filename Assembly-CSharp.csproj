@@ -64,7 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Arrastar.cs" />
     <Compile Include="Assets\Scripts\CavaleiroScript.cs" />
-    <Compile Include="Assets\Scripts\CriadorTabuleiro.cs" />
+    <Compile Include="Assets\Scripts\CorredorScript.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\IHerois.cs" />
     <Reference Include="Unity.Timeline.Editor">

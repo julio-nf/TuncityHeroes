@@ -43,12 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a33728ff205e644a960b5e11b3326c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HeroisP1: []
-  HeroisP2: []
+  heroisPrefabs:
+  - {fileID: 8144102954255585638, guid: 2556f57181e4d064e885f35d15677e5a, type: 3}
+  - {fileID: 7844783178720420235, guid: d35eae3459393c94f9c2fdf448173505, type: 3}
   BotaoPassar: {fileID: 0}
-  Campeao: {fileID: 8144102954255585638, guid: 2556f57181e4d064e885f35d15677e5a, type: 3}
   Loja: {fileID: 0}
   Cam: {fileID: 0}
   TextoTurno: {fileID: 0}
-  Turno: 0
   TempoRotacao: 1

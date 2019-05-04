@@ -9,7 +9,6 @@ public class Arrastar : MonoBehaviour
     private Vector2 mousePosition;
     private Vector2 gridPosition;
     private float deltaX, deltaY;
-    private GameObject Hero;
     public Sprite[] spritesR;
 
     private void Start()
@@ -19,7 +18,6 @@ public class Arrastar : MonoBehaviour
 
     private void OnMouseDown()
     {
-
         deltaX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
         deltaY = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
 
@@ -33,8 +31,6 @@ public class Arrastar : MonoBehaviour
 
     private void OnMouseUp()
     {
-        //GameManager GM = gameManager.GetComponent<GameManager>();
-
         int PosX = Mathf.RoundToInt(transform.position.x);
         int PosY = Mathf.RoundToInt(transform.position.y);
         SpriteRenderer SR = gameObject.GetComponent<SpriteRenderer>();

@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8144102954255585632}
   - component: {fileID: 8144102954255585633}
-  - component: {fileID: 8144102954255585635}
-  - component: {fileID: 4462934094829431310}
   - component: {fileID: 6689996580042981793}
-  - component: {fileID: 5301955732619206010}
+  - component: {fileID: 4462934094829431310}
+  - component: {fileID: 8144102954255585635}
   m_Layer: 8
   m_Name: Cavaleiro
   m_TagString: Untagged
@@ -83,36 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8144102954255585635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8144102954255585638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f476a7efc11c804aaa053bdcee9533f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VelociMov: 1.5
---- !u!114 &4462934094829431310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8144102954255585638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf0e44b9c1637a44e87ee4e3ddf6b3da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 8714405635300655474, guid: ddc54becfa2df1a4f8705c5412a61713,
-    type: 3}
-  spritesR:
-  - {fileID: 21300008, guid: a26548e070fcd1844b98148a17c3c0f1, type: 3}
-  - {fileID: 21300080, guid: a26548e070fcd1844b98148a17c3c0f1, type: 3}
 --- !u!61 &6689996580042981793
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -139,22 +108,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.84375, y: 1.25}
   m_EdgeRadius: 0
---- !u!95 &5301955732619206010
-Animator:
-  serializedVersion: 3
+--- !u!114 &4462934094829431310
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8144102954255585638}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 486f5a732bc6e2140b2e4ff054afb4f9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0e44b9c1637a44e87ee4e3ddf6b3da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 8714405635300655474, guid: ddc54becfa2df1a4f8705c5412a61713,
+    type: 3}
+  spritesR:
+  - {fileID: 21300008, guid: a26548e070fcd1844b98148a17c3c0f1, type: 3}
+  - {fileID: 21300080, guid: a26548e070fcd1844b98148a17c3c0f1, type: 3}
+  loja: {fileID: 1940187997802534434, guid: 36480980dd161d9448e3867750e07636, type: 3}
+  inventario: {fileID: 3265807699212965067, guid: bbea88eb2fefc98479777aeddd043ac4,
+    type: 3}
+--- !u!114 &8144102954255585635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8144102954255585638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f476a7efc11c804aaa053bdcee9533f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VelociMov: 1.5
+  precoCamp: {fileID: 7196870345117807956, guid: 67e6fd6ec5a4fd64fa65fe12315d6826,
+    type: 3}
+  preco: 5
+  tamanhoMovimento: 1
+  tamanhoAtaque: 3

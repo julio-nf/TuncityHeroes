@@ -1,44 +1,59 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CavaleiroScript : MonoBehaviour, IHerois
 {
     private Vector3 DestInterpol;
     private bool Movimentar = false;
     public float VelociMov;
+    public Text precoCamp;
+    public int preco = 5;
 
     public int tamanhoMovimento = 1; //Tamanho do movimento que o personagem fará
     public int tamanhoAtaque = 3; //Tamanho do ataque do personagem, apenas numeros impares
 
     public void Movimento()
     {
-        int PosX = Mathf.RoundToInt(transform.position.x);
-        int PosY = Mathf.RoundToInt(transform.position.y);
-
-        ChecaMovimenta(PosX, PosY, tamanhoMovimento, tamanhoAtaque); 
+        if (gameObject.CompareTag("Player1") || gameObject.CompareTag("Player2")) {
+            ChecaMovimentaCav(tamanhoMovimento, tamanhoAtaque);
+        }
     }
 
-    private void ChecaMovimenta(int posX, int posY, int mov, int rangeAtaque)
+    private void ChecaMovimentaCav(int mov, int rangeAtaque)
     {
-        if (GameManager.Turno == 1) {
-            for (int i = 1; i <= mov; i++) {
-                if (GameManager.CasaOcupada[posX, posY + i] == null) {
-                    GameManager.CasaOcupada[posX, posY] = null;
-                    GameManager.CasaOcupada[posX, posY + i] = gameObject;
-                    DestInterpol = transform.position + Vector3.up;
-                    Movimentar = true;
-                } else { Atacar(posX, posY, rangeAtaque, 1); }
+        int posX = Mathf.RoundToInt(transform.position.x);
+        int posY = Mathf.RoundToInt(transform.position.y);
+
+        if (GameManager.Turno == 1)
+        {
+            if (posY >= 7) { AtacarHP(2); }
+            else if (GameManager.CasaOcupada[posX, posY + 1] == null)
+            {
+                GameManager.CasaOcupada[posX, posY] = null;
+                GameManager.CasaOcupada[posX, posY + 1] = gameObject;
+                DestInterpol = transform.position + Vector3.up;
+                Movimentar = true;
+            }
+            else
+            {
+                Atacar(posX, posY, rangeAtaque, 1);
             }
         }
-        else {
-            for (int i = 1; i <= mov; i++) {
-                if (GameManager.CasaOcupada[posX, posY - i] == null) {
-                    GameManager.CasaOcupada[posX, posY] = null;
-                    GameManager.CasaOcupada[posX, posY - i] = gameObject;
-                    DestInterpol = transform.position + Vector3.down;
-                    Movimentar = true;
-                } else { Atacar(posX, posY, rangeAtaque, -1); }
+        else
+        {
+            if (posY <= 0) { AtacarHP(0); }
+            else if (GameManager.CasaOcupada[posX, posY - 1] == null)
+            {
+                GameManager.CasaOcupada[posX, posY] = null;
+                GameManager.CasaOcupada[posX, posY - 1] = gameObject;
+                DestInterpol = transform.position + Vector3.down;
+                Movimentar = true;
+            }
+            else
+            {
+                Atacar(posX, posY, rangeAtaque, -1);
             }
         }
     }
@@ -82,6 +97,12 @@ public class CavaleiroScript : MonoBehaviour, IHerois
         }
     }
 
+    private void AtacarHP(int player)
+    {
+        if (player == 1) { GameManager.hpPlayer1--; }
+        else { GameManager.hpPlayer2--; }
+    }
+
     public void AlteraSprite()
     {
         SpriteRenderer sr = transform.GetComponent<SpriteRenderer>();
@@ -104,6 +125,35 @@ public class CavaleiroScript : MonoBehaviour, IHerois
             }
         }
     }
+
+    // void OnMouseOver()
+    // {
+    //     if (transform.CompareTag("Loja"))
+    //     {
+    //         precoCamp.enabled = true;
+    //         precoCamp.text = "Valor: $" + preco;
+    //     }
+    // }
+    // 
+    // void OnMouseExit()
+    // {
+    //     if (transform.CompareTag("Loja"))
+    //     {
+    //         precoCamp.enabled = false;
+    //     }
+    // }
+    // 
+    // void OnMouseDown()
+    // {
+    //     if (transform.CompareTag("Loja") && GameManager.Turno == 1 && GameManager.moneyP1 >= preco)
+    //     {
+    //         GameManager.moneyP1 -= preco;
+    //         gameObject.transform.position = new Vector3(-7, -2);
+    //     } else if (transform.CompareTag("Loja") && GameManager.Turno == 2 && GameManager.moneyP2 >= preco){
+    //         GameManager.moneyP2 -= preco;
+    //         gameObject.transform.position = new Vector3(-5, 9);
+    //     }
+    // }
 
     void Update()
     {
